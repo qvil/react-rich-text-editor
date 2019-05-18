@@ -1,0 +1,27 @@
+{
+  "name": "react-rich-text-editor",
+  "version": "1.0.0",
+  "description": "Rich text editor using Draft.js. 📝",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qvil/react-rich-text-editor.git"
+  },
+  "keywords": [],
+  "author": "Taesu Hyeon <qvil1127@gmail.com> (https://github.com/qvil)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/qvil/react-rich-text-editor/issues"
+  },
+  "homepage": "https://github.com/qvil/react-rich-text-editor#readme",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "draft-js": "^0.10.5",
+    "parcel-bundler": "^1.12.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}
