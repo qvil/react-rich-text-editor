@@ -1,19 +1,16 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import { Editor, EditorState, RichUtils } from "draft-js";
-
-const Container = styled.div`
-  display: flex;
-  flex-flow: column wrap;
-`;
-
-const Preview = styled.div`
-  background: papayawhip;
-`;
+import {
+  Container,
+  Preview,
+  ButtonGroup,
+  Button,
+  EditorStyle
+} from "./MyEditor.style";
 
 const MyEditor = () => {
   const [editorState, setEditorState] = useState(EditorState.createEmpty());
-  const [text, setText] = useState("Text");
+  const [text, setText] = useState("Preview");
 
   const onChange = editorState => setEditorState(editorState);
 
@@ -26,13 +23,23 @@ const MyEditor = () => {
     return "not-handled";
   };
 
+  const handleBoldClick = () => {
+    onChange(RichUtils.toggleInlineStyle(editorState, "BOLD"));
+  };
+
   return (
     <Container>
-      <Editor
-        editorState={editorState}
-        onChange={onChange}
-        handleKeyCommand={handleKeyCommand}
-      />
+      <ButtonGroup>
+        <Button onClick={handleBoldClick}>Bold</Button>
+      </ButtonGroup>
+      <EditorStyle>
+        <Editor
+          editorState={editorState}
+          onChange={onChange}
+          handleKeyCommand={handleKeyCommand}
+          placeholder="Typing here"
+        />
+      </EditorStyle>
       <Preview>{text}</Preview>
     </Container>
   );
