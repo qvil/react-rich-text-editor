@@ -1,16 +1,9 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Editor, EditorState } from "draft-js";
+import MyEditor from "./components/MyEditor";
 
-function MyEditor() {
-  const [editorState, setEditorState] = useState(EditorState.createEmpty());
+const App = () => {
+  return <MyEditor />;
+};
 
-  return (
-    <Editor
-      editorState={editorState}
-      onChange={editorState => setEditorState(editorState)}
-    />
-  );
-}
-
-ReactDOM.render(<MyEditor />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
