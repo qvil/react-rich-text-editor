@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { Editor, EditorState, RichUtils } from "draft-js";
+import {
+  Editor,
+  EditorState,
+  RichUtils,
+  convertFromRaw,
+  convertToRaw
+} from "draft-js";
 import {
   Container,
   Preview,
@@ -9,7 +15,13 @@ import {
 } from "./MyEditor.style";
 
 const MyEditor = () => {
-  const [editorState, setEditorState] = useState(EditorState.createEmpty());
+  const [editorState, setEditorState] = useState(
+    localStorage.editorState
+      ? EditorState.createWithContent(
+          convertFromRaw(JSON.parse(localStorage.editorState))
+        )
+      : EditorState.createEmpty()
+  );
   const [text, setText] = useState("Preview");
 
   const onChange = editorState => setEditorState(editorState);
@@ -27,10 +39,17 @@ const MyEditor = () => {
     onChange(RichUtils.toggleInlineStyle(editorState, "BOLD"));
   };
 
+  const handleSave = () => {
+    const ContentState = convertToRaw(editorState.getCurrentContent());
+
+    localStorage.editorState = JSON.stringify(ContentState);
+  };
+
   return (
     <Container>
       <ButtonGroup>
         <Button onClick={handleBoldClick}>Bold</Button>
+        <Button onClick={handleSave}>Save</Button>
       </ButtonGroup>
       <EditorStyle>
         <Editor
