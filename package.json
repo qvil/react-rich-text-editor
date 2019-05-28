@@ -20,6 +20,8 @@
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "draft-js": "^0.10.5",
+    "draft-js-image-plugin": "^2.0.6",
+    "draft-js-plugins-editor": "^2.1.1",
     "parcel-bundler": "^1.12.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
