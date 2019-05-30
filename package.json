@@ -19,6 +19,7 @@
   "homepage": "https://github.com/qvil/react-rich-text-editor#readme",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "ckeditor4-react": "^1.0.0-beta",
     "draft-js": "^0.10.5",
     "draft-js-image-plugin": "^2.0.6",
     "draft-js-plugins-editor": "^2.1.1",

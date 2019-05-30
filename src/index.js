@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import MyEditor from "./components/MyEditor";
+import PlainEditor from "./components/PlainEditor/PlainEditor";
+// import MyEditor from "./components/MyEditor";
+// import MyCKEditor from "./components/CKEditor/MyCKEditor";
 
 const App = () => {
-  return <MyEditor />;
+  return <PlainEditor />;
 };
 
 ReactDOM.render(<App />, document.getElementById("root"));
